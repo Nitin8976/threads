@@ -10,31 +10,12 @@ exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
-const products_module_1 = require("./modules/products/products.module");
-const orders_module_1 = require("./modules/orders/orders.module");
-const customers_module_1 = require("./modules/customers/customers.module");
-const category_module_1 = require("./modules/category/category.module");
-const order_item_module_1 = require("./modules/order-item/order-item.module");
-const config_1 = require("@nestjs/config");
-const typeorm_1 = require("@nestjs/typeorm");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [products_module_1.ProductsModule, orders_module_1.OrdersModule, customers_module_1.CustomersModule, category_module_1.CategoryModule, order_item_module_1.OrderItemModule,
-            config_1.ConfigModule.forRoot(),
-            typeorm_1.TypeOrmModule.forRoot({
-                type: 'mysql',
-                host: process.env.DB_HOST,
-                port: +process.env.DB_PORT,
-                username: process.env.DB_USERNAME,
-                password: process.env.DB_PASSWORD,
-                database: process.env.DB_NAME,
-                entities: [__dirname + '/**/*.entity{.ts,.js}'],
-                synchronize: true,
-            }),
-        ],
+        imports: [],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })
