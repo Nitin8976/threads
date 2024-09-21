@@ -6,20 +6,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = void 0;
+exports.QuizModule = void 0;
 const common_1 = require("@nestjs/common");
-const app_controller_1 = require("./app.controller");
-const app_service_1 = require("./app.service");
-const quiz_module_1 = require("./modules/quiz/quiz.module");
-const typeorm_config_1 = require("./config/typeorm.config");
-let AppModule = class AppModule {
+const quiz_service_1 = require("./quiz.service");
+const quiz_controller_1 = require("./quiz.controller");
+const quiz_entity_1 = require("./entity/quiz.entity");
+const typeorm_1 = require("@nestjs/typeorm");
+let QuizModule = class QuizModule {
 };
-exports.AppModule = AppModule;
-exports.AppModule = AppModule = __decorate([
+exports.QuizModule = QuizModule;
+exports.QuizModule = QuizModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_config_1.TypeOrmConfig, quiz_module_1.QuizModule],
-        controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
+        imports: [typeorm_1.TypeOrmModule.forFeature([quiz_entity_1.Quiz])],
+        providers: [quiz_service_1.QuizService],
+        controllers: [quiz_controller_1.QuizController]
     })
-], AppModule);
-//# sourceMappingURL=app.module.js.map
+], QuizModule);
+//# sourceMappingURL=quiz.module.js.map
